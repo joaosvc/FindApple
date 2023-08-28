@@ -7,24 +7,6 @@ const products: any = {
       price: 10000,
       description: 'iPhone 11 pro max',
       image: 'https://files.tecnoblog.net/wp-content/uploads/2020/11/iphone-11-pro-produto.png'
-    },
-    {
-      name: 'iPhone 11 pro max',
-      price: 10000,
-      description: 'iPhone 11 pro max',
-      image: 'https://files.tecnoblog.net/wp-content/uploads/2020/11/iphone-11-pro-produto.png'
-    },
-    {
-      name: 'iPhone 11 pro max',
-      price: 10000,
-      description: 'iPhone 11 pro max',
-      image: 'https://files.tecnoblog.net/wp-content/uploads/2020/11/iphone-11-pro-produto.png'
-    },
-    {
-      name: 'iPhone 11 pro max',
-      price: 10000,
-      description: 'iPhone 11 pro max',
-      image: 'https://files.tecnoblog.net/wp-content/uploads/2020/11/iphone-11-pro-produto.png'
     }
   ]
 }
@@ -35,7 +17,7 @@ interface IDevices {
 }
 
 const Devices = ({ deviceType, search }: IDevices) => {
-  const devices: IDevice[] = products[deviceType]
+  const devices: IDevice[] = products[deviceType] ?? []
 
   if (devices.length > 0) {
     return (

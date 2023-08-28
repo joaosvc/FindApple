@@ -44,5 +44,17 @@ export const authOptions: NextAuthOptions = {
   debug: process.env.ENV_NODE === 'development',
   pages: {
     signIn: '/auth'
+  },
+  callbacks: {
+    async session({ session, token }) {
+      session.user = token.user;
+      return session;
+    },
+    async jwt({ token, user }) {
+      if (user) {
+        token.user = user;
+      }
+      return token;
+    },
   }
 }

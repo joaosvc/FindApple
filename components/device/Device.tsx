@@ -14,7 +14,7 @@ const Device = ({ name, price, description, image }: IDevice) => {
             <img className="w-9" src={image} alt="Device Image" />
           </div>
 
-          <div className="flex items-center h-full w-52">
+          <div className="flex items-center h-full w-auto sm:w-52">
             <span title="Nome do dispositivo">{name}</span>
           </div>
 

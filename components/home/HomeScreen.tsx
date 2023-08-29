@@ -1,7 +1,7 @@
 import { AiOutlineApple } from 'react-icons/ai'
-import VisitComponent from './VisitComponent'
-import MacbookFortalIcon from '../MacbookFortalIcon'
-import ProductsViewer from './products/ProductsViewer'
+import VisitComponent from './visit/VisitComponent'
+import MacbookFortalIcon from '../icons/MacbookFortalIcon'
+import ProductsViewer from './product/ProductsViewer'
 
 const HomeScreen = () => {
   return (

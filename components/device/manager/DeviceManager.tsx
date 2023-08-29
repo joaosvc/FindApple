@@ -1,7 +1,7 @@
 'use client'
 
 import { BiSearch } from 'react-icons/bi'
-import SearchContent from './search/SearchContent'
+import SearchContent from '../search/SearchContent'
 import { forwardRef, useImperativeHandle, useRef, useState } from 'react'
 
 const DeviceManager = forwardRef((props: any, ref: any) => {
@@ -26,7 +26,9 @@ const DeviceManager = forwardRef((props: any, ref: any) => {
 
   return (
     <>
-      <div className="w-[90vw] lg:w-[60rem] sm:w-[85vw] overflow-auto p-3 items-center justify-between m-auto shadow-sm rounded-sm bg-light">
+      <div
+        className="w-[90vw] lg:w-[60rem] sm:w-[85vw] overflow-auto p-3 items-center justify-between m-auto shadow-sm rounded-sm bg-light"
+        {...props}>
         <div className="flex flex-row rounded-lg w-full">
           <label htmlFor="search">
             <BiSearch size={19} className="cursor-pointer" />

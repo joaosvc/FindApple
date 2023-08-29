@@ -4,6 +4,12 @@ import { PrismaAdapter } from '@next-auth/prisma-adapter'
 import { prisma } from './prisma'
 import bcrypt from 'bcrypt'
 
+export interface Session {
+  user?: {
+    username?: string | null
+  }
+}
+
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
   providers: [
@@ -37,20 +43,30 @@ export const authOptions: NextAuthOptions = {
       }
     })
   ],
-  session: {
-    strategy: 'jwt'
-  },
-  secret: process.env.SECRET,
-  debug: process.env.ENV_NODE === 'development',
   pages: {
     signIn: '/auth'
   },
+  session: {
+    strategy: 'jwt',
+    maxAge: 30 * 24 * 60 * 60,
+    updateAge: 24 * 60 * 60
+  },
+  secret: process.env.SECRET,
+  debug: process.env.ENV_NODE === 'development',
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.user = user;
+    async session({ session, token }: { session: any; token: any }) {
+      const { username } = token.user
+
+      session.user = {
+        username: username
       }
-      return token;
+      return session
+    },
+    async jwt({ token, user }: { token: any; user: any }) {
+      if (user) {
+        token.user = user
+      }
+      return token
     }
   }
 }

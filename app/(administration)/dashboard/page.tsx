@@ -1,11 +1,19 @@
-import ClientComponentAuth from '@/components/auth/provider/ClientComponentAuth'
-import ServerComponentAuth from '@/components/auth/provider/ServerComponentAuth'
+'use client'
 
-const Dashboard = async () => {
+import DashboardScreen from '@/components/dashboard/DashboardScreen'
+import DashboardHeader from '@/components/dashboard/header/DashboardHeader'
+import { useSession } from 'next-auth/react'
+
+const Dashboard = () => {
+  const { data: session }: any = useSession()
+  const username = session?.user?.username
+
   return (
     <>
-      <ClientComponentAuth />
-      <ServerComponentAuth />
+      <div className="flex flex-col w-full h-screen">
+        <DashboardHeader username={username} />
+        <DashboardScreen />
+      </div>
     </>
   )
 }

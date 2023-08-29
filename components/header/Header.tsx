@@ -1,6 +1,10 @@
 import Link from 'next/link'
 
-const Header = ({ rightItems }: { rightItems: React.ReactNode }) => {
+interface IHeader {
+  rightItems?: React.ReactNode
+}
+
+const Header = ({ rightItems }: IHeader) => {
   return (
     <>
       <header>
@@ -10,7 +14,9 @@ const Header = ({ rightItems }: { rightItems: React.ReactNode }) => {
               <h1 className="font-semibold text-lg">Find Apple</h1>
             </Link>
 
-            <div className="flex flex-row items-center space-x-3">{rightItems}</div>
+            <div className="flex flex-row items-center space-x-3">
+              {rightItems ?? <span className="font-semibold cursor-pointer">Ajuda</span>}
+            </div>
           </div>
         </nav>
       </header>

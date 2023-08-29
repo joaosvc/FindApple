@@ -11,12 +11,12 @@ const products: any = {
   ]
 }
 
-interface IDevices {
+interface IDevicesViewer {
   deviceType: string
   search?: string
 }
 
-const Devices = ({ deviceType, search }: IDevices) => {
+const DevicesViewer = ({ deviceType, search }: IDevicesViewer) => {
   const devices: IDevice[] = products[deviceType] ?? []
 
   if (devices.length > 0) {
@@ -37,4 +37,4 @@ const Devices = ({ deviceType, search }: IDevices) => {
   }
 }
 
-export default Devices
+export default DevicesViewer

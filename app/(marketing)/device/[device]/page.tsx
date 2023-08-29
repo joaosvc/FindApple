@@ -1,4 +1,4 @@
-import Header from '@/components/Header'
+import Header from '@/components/header/Header'
 import DeviceScreen from '@/components/device/DeviceScreen'
 
 export default ({ params }: any) => {
@@ -7,7 +7,7 @@ export default ({ params }: any) => {
   return (
     <>
       <div className="flex flex-col w-full h-screen">
-        <Header rightItems={<span className="font-semibold cursor-pointer">Ajuda</span>} />
+        <Header />
         <DeviceScreen deviceType={device} />
       </div>
     </>

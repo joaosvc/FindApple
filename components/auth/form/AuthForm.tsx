@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import AuthInput from '../options/AuthInput'
 import AuthButton from '../options/AuthButton'
 import { signIn } from 'next-auth/react'

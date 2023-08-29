@@ -1,3 +1,5 @@
+'use client'
+
 import AuthForm from './form/AuthForm'
 
 const AuthScreen = async () => {
@@ -12,4 +14,5 @@ const AuthScreen = async () => {
     </div>
   )
 }
+
 export default AuthScreen
